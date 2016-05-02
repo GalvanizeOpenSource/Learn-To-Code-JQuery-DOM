@@ -75,7 +75,7 @@ Your code should now look a lot more like the following:
 </body>
 </html>
 ```
-We will be lowing jQuery from Google APIs instead of downloading the entire library onto our own computer. You're welcome to download the file yourself [here], but this will be a more efficient way to use JQuery moving forward.
+We will be loading jQuery from Google APIs instead of downloading the entire library onto our own computer. You're welcome to download the file yourself [here], but this will be a more efficient way to use JQuery moving forward.
 
 ## Your first task: Ready the Document!
 
@@ -101,7 +101,7 @@ Let's add the following code to your `$( document ).ready` function:
 ```javascript
      window.alert("The document is ready!");
 ```
-This should create a pop-up window saying "The document is ready!"! (You'll need to allow pop-ups in your browser.)
+This should create a pop-up window saying "The document is ready!" (You'll need to allow pop-ups in your browser.)
 
 Add the code to look like the following, then save and refresh your browser.
 ```javascript
@@ -287,3 +287,28 @@ The selector `this` is a cool jQuery selector that affects the same element in t
 
 Save your changes, refresh your browser, and test whether this works on all three `<div>`s. 
 
+## Time to dive into the DOM!
+
+As started earlier, the **Document Object Model** or **DOM** for short is how your HTML is structured to allow for jQuery and other languages to move or *traverse* through them to find what they need in a page.
+
+![alt text](http://www.w3schools.com/jquery/img_travtree.png "DOM Traverse Tree from W3Schools")
+
+**Illustration from W3Schools.com explained:**
+- The `<div>` element is the parent of `<ul>`, and an ancestor of everything inside of it
+- The `<ul>` element is the parent of both `<li>` elements, and a child of `<div>`
+- The left `<li>` element is the parent of `<span>`, child of `<ul>` and a descendant of `<div>`
+- The `<span>` element is a child of the left `<li>` and a descendant of `<ul>` and `<div>`
+- The two `<li>` elements are siblings (they share the same parent)
+- The right `<li>` element is the parent of `<b>`, child of `<ul>` and a descendant of `<div>`
+- The `<b>` element is a child of the right `<li>` and a descendant of `<ul>` and `<div>`
+
+In other words, elements follow an implicit hierarchy of `parent` and `child`, of `ascendant` and `descendant`. In jQuery, we can write code for a `parent` element that impacts the `child`. Let's use the example where this comes in most handy: **the list**.
+
+Create a list with the following HTML code in your `index.html` file.
+```html
+<li>This is a list!
+     <ul>Item #1</ul> 
+     <ul>Item #2</ul>
+     <ul>Item #3</ul>
+</li>     
+```
