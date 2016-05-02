@@ -139,15 +139,15 @@ This is a button in HTML, set to the browser's default settings. Add it to the H
 
 Save your HTML file and refresh your browser. It should now appear. How do we make this button interact with the jQuery? 
 
-**Choose your selector**Capture `button` in the jQuery's selector:
+**Choose your selector!** Capture `button` in the jQuery's selector:
 ```javascript
      $( button )
 ```
-**Declare the method!**Cite the jQuery method we want to use. In this case, we're using `.click` so that something happens when you click the button:
+**Declare the method!** Cite the jQuery method we want to use. In this case, we're using `.click` so that something happens when you click the button:
 ```javascript
      $( button ).click()
 ```
-**Define the method!**We are going to create a JavaScript function within the `.click` method to do a specific function for this `event`. For simplicity, let's create another alert.
+**Define the method!** We are going to create a JavaScript function within the `.click` method to do a specific function for this `event`. For simplicity, let's create another alert.
 ```javascript
      $( button ).click(function({
           window.alert("Nice clicking, there, friend!");
@@ -212,7 +212,7 @@ Now we're ready to set up our jQuery function. Add the following script into you
 Right now ths function does nothing when you click on it. Add the following script to this new function:
 ```javascript
      $( '#add-class' ).click(function({
-          $( 'button` ).addClass('super-button');
+          $( 'button' ).addClass('super-button');
      });
 ```
 Let's slow down for a second. What we've done is set up our jQuery file so that when you click on a link with the ID `#add-class`, it will add the CSS styles under `.super-button` to that `button`. Make sense?
@@ -222,3 +222,22 @@ Let's slow down for a second. What we've done is set up our jQuery file so that 
 Save all of your code and refresh your browser. Test the link. Did it work?
 
 #### Create the second link: #Remove-Class
+
+Let's keep the party going. Let's add a link that will remove the class. First step: adding the HTML below the last link.
+```html
+<div>
+     <a id="remove-class">Remove Class</a>
+</div>
+```
+We're now working with a new ID `#remove-class`. Let's make sure it has something to work with in the jQuery file. Add the following code in your `$( document ).ready()` function.
+```javascript
+     $( '#remove-class' ).click(function({
+          $( 'button' ).removeClass('super-button');
+     });
+```
+Notice the new event handler `.removeClass` - if you click on this new link, you'll remove the class you've just added.
+
+*Gut check: what if you never clicked on the first link? What would be the effect of clicking this one?*
+
+#### Create just one more link: #Toggle-Class
+
