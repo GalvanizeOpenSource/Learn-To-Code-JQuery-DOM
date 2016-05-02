@@ -241,3 +241,49 @@ Notice the new event handler `.removeClass` - if you click on this new link, you
 
 #### Create just one more link: #Toggle-Class
 
+Creating a button to do one thing and another to undo it is... kind of lame. Fortunately, in jQuery, there's another method you can use to `toggle` back and forth between `add` and `remove`: the conveniently named `.toggleClass()`.
+
+First step: create a third link in your HTML with the ID `toggle-class`.
+```html
+<div>
+     <a id="toggle-class">Toggle Class</a>
+</div>
+```
+Second step: 
+```javascript
+     $( '#toggle-class' ).click(function({
+          $( 'button' ).toggleClass('super-button');
+     });
+```
+Save your changes and refresh your browser. Did it work?
+
+Now you know how to add classes and IDs in HTML that you can interact with in jQuery!
+
+## Can you deal with `$( this )`?
+
+Earlier, we asked what would happen if your selector contained `button`, and **spoiler alert** the jQuery method changes every instance of `button` on the page. What if we just wanted to change the very thing we clicked on instead?
+
+Let's create a few `<div>` fields with a class with style attributes that's already in your CSS: `.click-this`.
+
+```html
+<div class="click-this">
+Click this #1!
+</div>
+<div class="click-this">
+Click this #2!
+</div>
+<div class="click-this">
+Click this #3!
+</div>
+```
+Good! Now move over to your `custom.js` file and add the following jQuery code into the `$( document ).ready()` function block. Notice something different in one of the selectors?
+
+```javascript
+     $( '.click-this' ).click(function({
+          $( this ).toggleClass('click-this');
+     });
+```
+The selector `this` is a cool jQuery selector that affects the same element in the selector above it. It will only impact that particular element, but you can reproduce this function for other elements as well, if they share the same class.
+
+Save your changes, refresh your browser, and test whether this works on all three `<div>`s. 
+
