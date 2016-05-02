@@ -137,21 +137,23 @@ This is a button in HTML, set to the browser's default settings. Add it to the H
 </html>
 ```
 
-Save your HTML file and refresh your browser. It should now appear. How do we make this button interact with the jQuery? 1. 1. Capture `button` in the jQuery's selector:
+Save your HTML file and refresh your browser. It should now appear. How do we make this button interact with the jQuery? 
+
+**Choose your selector**Capture `button` in the jQuery's selector:
 ```javascript
      $( button )
 ```
-2. Cite the jQuery method we want to use. In this case, we're using `.click` so that something happens when you click the button:
+**Declare the method!**Cite the jQuery method we want to use. In this case, we're using `.click` so that something happens when you click the button:
 ```javascript
      $( button ).click()
 ```
-3. We are going to create a JavaScript function within the `.click` method to do a specific function for this `event`. For simplicity, let's create another alert.
+**Define the method!**We are going to create a JavaScript function within the `.click` method to do a specific function for this `event`. For simplicity, let's create another alert.
 ```javascript
      $( button ).click(function({
           window.alert("Nice clicking, there, friend!");
      });
 ```     
-4. Put it all in the `$( document ).ready()`, save your JS file, and refresh the browser. Did it work?
+**Save and check!**Put it all in the `$( document ).ready()`, save your JS file, and refresh the browser. Did it work?
 ```javascript
 $( document ).ready(function() {
      window.alert("The document is ready!");
@@ -161,3 +163,62 @@ $( document ).ready(function() {
      });
 });
 ``` 
+Now you know the general process of using jQuery. Let's try something new!
+
+## Adding and Removing Classes in jQuery
+
+Let's face it - your button is ugly. We can make it look better. We're going to create three things:
+1. A link that will add our button with new styles  
+2. A link that will remove the styles
+3. A link that will toggle between having the two styles
+
+
+#### Back to CSS
+
+Fortunately, your CSS file already has a class called `.super-button` that can instantly improve the quality of yours:
+```css
+.super-button {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+    padding: .75rem 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.333333;
+    border-radius: .3rem;
+    border: 1px solid transparent;
+}    
+```
+Don't worry if you don't fully understand what's happening here, but if you're interested, we're sampling the [Bootstrap large button](http://v4-alpha.getbootstrap.com/components/buttons/) class here.
+
+#### Create the first link: #Add-Class
+
+Add the following code into the `<body>` of your HTML. It is a link with text, but for now it lacks function.
+```html
+<div>
+     <a>Add Class</a>
+</div>     
+```
+We'll need to give this link an `id` so that it matches up with the jQuery we'll create later. I suggest `#add-class`.
+```html
+<div>
+     <a id="add-class">Add Class</a>
+</div>
+```
+Now we're ready to set up our jQuery function. Add the following script into your `$( document ).ready()` function:
+```javascript
+     $( '#add-class' ).click(function({
+     });
+```
+Right now ths function does nothing when you click on it. Add the following script to this new function:
+```javascript
+     $( '#add-class' ).click(function({
+          $( 'button` ).addClass('super-button');
+     });
+```
+Let's slow down for a second. What we've done is set up our jQuery file so that when you click on a link with the ID `#add-class`, it will add the CSS styles under `.super-button` to that `button`. Make sense?
+
+*Gut check: what if we added more buttons? What would happen if we clicked this link?*
+
+Save all of your code and refresh your browser. Test the link. Did it work?
+
+#### Create the second link: #Remove-Class
