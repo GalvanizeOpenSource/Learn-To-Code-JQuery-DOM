@@ -304,11 +304,34 @@ As started earlier, the **Document Object Model** or **DOM** for short is how yo
 
 In other words, elements follow an implicit hierarchy of `parent` and `child`, of `ascendant` and `descendant`. In jQuery, we can write code for a `parent` element that impacts the `child`. Let's use the example where this comes in most handy: **the list**.
 
-Create a list with the following HTML code in your `index.html` file.
+Create a list with the following HTML code in your `index.html` file. Add a button at the bottom.
 ```html
 <li>This is a list!
      <ul>Item #1</ul> 
      <ul>Item #2</ul>
      <ul>Item #3</ul>
-</li>     
+</li>
+<button></button>
 ```
+
+Let's create a jQuery function that deletes the top item on the list. 
+
+First, we have to create an ID for the list: `item-list`. We also need an ID for the button: `delete-item`. Name the button as well.
+```html
+<li id="item-list">This is a list!
+     <ul>Item #1</ul> 
+     <ul>Item #2</ul>
+     <ul>Item #3</ul>
+</li>
+<button id="delete-item">Delete an item</button>
+```
+
+Next, we go into our `custom.js` file and add yet another jQuery function:
+
+```javascript
+     $( '#delete-item' ).click(function({
+          $( '#item-list' ).child().remove();
+     });
+```
+
+What's happening here is that when you click on the button with ID `#delete-item`, it will look for the ID `item-list`, then for one of its children elements, and remove it. Save all of your changes and try it out yourself.
