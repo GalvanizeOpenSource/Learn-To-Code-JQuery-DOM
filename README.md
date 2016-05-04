@@ -312,11 +312,11 @@ Create a list with the following HTML code in your `index.html` file. Add a butt
 
 Let's create a jQuery function that deletes the children elements of the list. 
 
-**Gut check:** one of our functions may be conflicting with the one we're about to make:
+**Gut check:** one of our functions may be conflicting with the one we're about to make. I'm going to disable it with double dashes before each line:
 ```javascript
-    $( 'button' ).click(function() {
-         window.alert("Nice clicking there, my friend!");
-    });
+    // $( 'button' ).click(function() {
+     //    window.alert("Nice clicking there, my friend!");
+    // });
 ```
 You can delete it or disable it - we won't be using it again.
 
@@ -366,7 +366,7 @@ This time, let's add a method `.text("We just changed the text! Take that, paren
 
 Save your work and refresh your browser. What happened? *and at what cost...?*
 
-#### Play into the sibling rivalry instead
+#### Play into the sibling rivalry instead!
 
 The `<ul>` elements are siblings of one another. Let's click on one element and change the others! We'll need to modify our current block so that there are no conflicts.
 
@@ -378,18 +378,18 @@ The `<ul>` elements are siblings of one another. Let's click on one element and 
 
 Did it work? What happens if you click on another sibling? (Oh, does your medicine taste bitter...)
 
-# CONGRATULATIONS! YOU NOW KNOW (A LITTLE) JQUERY AND THE DOM!
+# CONGRATS! YOU NOW KNOW (A LITTLE) JQUERY AND THE DOM!
 
 ## Play around in the sandbox!
 
-Nice work - you're picking up the basics so far. The jQuery library is vast! Why not try some more complicated tasks:
+Nice work - you're picking up the basics so far, but the jQuery library is vast! Why not try some more complicated tasks:
 
 - Add `<ul>` elements so that your list doesn't disappear when you change the content
 - Create a form to submit values directly to the page
 - Add an image and modify its height and width
 - Make an element disappear.... slowly...
 
-Here are some resources for you to explore and tinker around:
+Here are some solid resources for you to explore and tinker around:
 
 - [Learn jQuery](https://learn.jquery.com/)
 - [Codecademy](https://www.codecademy.com/tracks/jquery)
