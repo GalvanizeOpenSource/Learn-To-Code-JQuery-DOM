@@ -340,7 +340,9 @@ Next, we go into our `custom.js` file and add yet another jQuery function:
 
 What's happening here is that when you click on the button with ID `#delete-item`, it will look for the ID `item-list`, then for one of its children elements, and remove it. Save all of your changes and try it out yourself.
 
-Did the entire list get deleted? If so, it worked! Notice how we had to **chain** the methods of `.children()` and `.remove()` in order to make this work. This is part of the fun of working in an *object-oriented language* in dot notation!
+Did the entire list get deleted? If so, it worked! 
+
+Notice how we had to **chain** the methods of `.children()` and `.remove()` in order to make this work. This is part of the fun of working in an *object-oriented language* in dot notation!
 
 *Gut check: what if we just wanted to remove one of the items at a time? Can you do it without creating an entirely new jQuery function?*
 
@@ -376,9 +378,33 @@ The `<ul>` elements are siblings of one another. Let's click on one element and 
 
 Did it work? What happens if you click on another sibling? (Oh, does your medicine taste bitter...)
 
-Congratulations - you've just learned how to use jQuery to work in the DOM.
+# CONGRATULATIONS! YOU NOW KNOW (A LITTLE) JQUERY AND THE DOM!
 
 ## Play around in the sandbox!
-```javascript
-     $
-```
+
+Nice work - you're picking up the basics so far. The jQuery library is vast! Why not try some more complicated tasks:
+
+- Add `<ul>` elements so that your list doesn't disappear when you change the content
+- Create a form to submit values directly to the page
+- Add an image and modify its height and width
+- Make an element disappear.... slowly...
+
+Here are some resources for you to explore and tinker around:
+
+- [Learn jQuery](https://learn.jquery.com/)
+- [Codecademy](https://www.codecademy.com/tracks/jquery)
+- [W3Schools](http://www.w3schools.com/jquery/)
+
+Want to code more the best instructors? Check out Galvanize's Full Stack Immersive Program!
+
+- 24 Week Full-Time Program
+- 97% Job Placement Rate within six months
+- Average starting salary: $77,000 per annum
+- Scholarships available for those who qualify
+- Learn more at http://galvanize.com/courses/fullstack/
+
+#### About the Author
+
+[Lee Ngo](http://linkedin.com/in/leengo) is an evangelist for Galvanize based in Seattle. Previously he worked for UP Global (now Techstars) and founded his own ed-tech company in Pittsburgh, PA. Lee believes in learning by doing, engaging and sharing, and he teaches code through a combination of visual communication, teamwork, and project-oriented learning.
+
+You can email him at lee.ngo@galvanize.com for any further questions.
