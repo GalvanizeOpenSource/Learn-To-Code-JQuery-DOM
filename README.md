@@ -16,10 +16,10 @@ The Document Object Model (commonly known as the DOM) is a cross-platform, langu
 
 ## Pre-requisites for this course
 
-It will be most helpful for you to have a basic understanding of HTML, CSS, and JavaScript. You can gain that knowledge by completing either of the following:
+It will be most helpful for you to have a basic understanding of HTML, CSS, and JavaScript. You can gain that knowledge by completing the following courses by yourself or at your nearby Galvanize campus:
 
-1. The [Galvanize pre-bootcamp course on Codecademy](http://codecademy.com/galvanize), or
-2. Completing the [Introduction to HTML and CSS](http://github.com/galvanizeOpenSource/learn-to-code-html-css) and [Introduction to JavaScript](http://github.com/galvanizeOpenSource/learn-to-code-javascript) courses by yourself or at your nearby Galvanize campus.
+- [Introduction to HTML and CSS](http://github.com/galvanizeOpenSource/learn-to-code-html-css)
+- [Introduction to JavaScript](http://github.com/galvanizeOpenSource/learn-to-code-javascript)
 
 **Installation requirements for this course**
 
@@ -49,16 +49,18 @@ Below is what your code should look like once downloaded:
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Demo</title>
+    <title>Demo of jQuery</title>
 </head>
 <body>
+<h1>Welcome to jQuery! Let's get started below.</h1>
 </body>
 </html>
 ```
 Let's change that. Add the following links to the `<head>` element and near the bottom of the `<body>`.
-- `<link link rel="stylesheet" type="text/css" href="CSS/style.css" />` in between `<head>` and `</head>`
-- `<script src="JS/custom.js></script>` to the bottom of your body tag, just before `</body>`
-- `<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>` to the bottom of your body tag, just before `</body>`
+- `<link rel="stylesheet" type="text/css" href="CSS/style.css" />` in between `<head>` and `</head>`
+- - `<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>` to the bottom of your body tag, just before `</body>`
+- `<script src="JS/custom.js></script>` to the very bottom of your body tag, just before `</body>` but below the Google jQuery API link **(this specific placement is vital!)**
+
 
 Your code should now look a lot more like the following:
 ```html
@@ -66,23 +68,26 @@ Your code should now look a lot more like the following:
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Demo</title>
+    <title>Demo of jQuery</title>
     <link link rel="stylesheet" type="text/css" href="CSS/style.css" />
 </head>
 <body>
-   <script src="JS/custom.js"></script>
+<h1>Welcome to jQuery! Let's get started below.</h1>     
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="JS/custom.js"></script>
 </body>
 </html>
 ```
-We will be loading jQuery from Google APIs instead of downloading the entire library onto our own computer. You're welcome to download the file yourself [here], but this will be a more efficient way to use JQuery moving forward.
+We will be loading jQuery from Google APIs instead of downloading the entire library onto our own computer. You're welcome to download the file yourself [here](http://plugins.jquery.com/multiDownload/), but this will be a more efficient way to use jQuery moving forward.
 
 ## Your first task: Ready the Document!
 
 Let's begin by familiarizing ourselves the the general syntax of jQuery. \n
 
+#### JQuery is so "money" (nobody talks like that anymore)
+
 **You can invoke jQuery in generally two ways:**
-- `jQuery.` - the "super" object that invokes all other objects in your jQuery file.
+- `jQuery.` - the "super" jQuery object that invokes all other objects to point to your jQuery library in your JavaScript file.
 - `$` - Become familiar with this symbol - it is the alias for `jQuery`. Its appearance in a JavaScript file or an HTML script tag implies that jQuery will be used on this line and the blocks that follow. 
 
 After invoking jQuery, the syntax follows the JavaScript standard of "Define, Declare, Call". Behold, the first function you declare: "Document, Ready"!
@@ -99,16 +104,17 @@ It is not wise to manipulate a page unless the elements are completely loaded. T
 
 Let's add the following code to your `$( document ).ready` function:
 ```javascript
-     window.alert("The document is ready!");
+     window.alert("The document is ready! (jQuery is working!)");
 ```
 This should create a pop-up window saying "The document is ready!" (You'll need to allow pop-ups in your browser.)
 
 Add the code to look like the following, then save and refresh your browser.
 ```javascript
 $( document ).ready(function() {
-     window.alert("The document is ready!");
+     window.alert("The document is ready! (jQuery is working!)");
 });
 ```
+**Note:** is this alert pops up, that means your JavaScript code is working. This is one way to check if that is the case. (What are some more conventional ways to check this?)
 
 ## More functionality: On-Click Events!
 
@@ -120,22 +126,7 @@ First, let's create something in our HTML for the user to click on. Insert the f
 <button type="button">This is a button.</button>
 ```
 
-This is a button in HTML, set to the browser's default settings. Add it to the HTML below:
-```html
-<!doctype html>
-<html>
-<head>
-     <meta charset="utf-8">
-     <title>Demo</title>
-     <link link rel="stylesheet" type="text/css" href="CSS/style.css" />
-</head>
-<body>
-     <button type="button">This is a button.</button>
-     <script src="JS/custom.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-</body>
-</html>
-```
+This is a button in HTML, set to the browser's default settings. Add it to your `<body>`.
 
 Save your HTML file and refresh your browser. It should now appear. How do we make this button interact with the jQuery? 
 
@@ -147,18 +138,18 @@ Save your HTML file and refresh your browser. It should now appear. How do we ma
 ```javascript
      $( button ).click()
 ```
-**Define the method!** We are going to create a JavaScript function within the `.click` method to do a specific function for this `event`. For simplicity, let's create another alert.
+**Define the method!** We are going to create a JavaScript function within the `.click` method to do a specific function for this `event` with an empty parameter. For simplicity, let's create another alert.
 ```javascript
-     $( button ).click(function({
+     $( button ).click(function() {
           window.alert("Nice clicking, there, friend!");
      });
 ```     
-**Save and check!**Put it all in the `$( document ).ready()`, save your JS file, and refresh the browser. Did it work?
+**Save and check!** Put it all in the `$( document ).ready()`, save your JS file, and refresh the browser. Did it work?
 ```javascript
 $( document ).ready(function() {
      window.alert("The document is ready!");
      // new code below
-     $( button ).click(function({
+     $( button ).click(function() {
           window.alert("Nice clicking, there, friend!");
      });
 });
@@ -168,6 +159,7 @@ Now you know the general process of using jQuery. Let's try something new!
 ## Adding and Removing Classes in jQuery
 
 Let's face it - your button is ugly. We can make it look better. We're going to create three things:
+
 1. A link that will add our button with new styles  
 2. A link that will remove the styles
 3. A link that will toggle between having the two styles
@@ -188,7 +180,7 @@ Fortunately, your CSS file already has a class called `.super-button` that can i
     border: 1px solid transparent;
 }    
 ```
-Don't worry if you don't fully understand what's happening here, but if you're interested, we're sampling the [Bootstrap large button](http://v4-alpha.getbootstrap.com/components/buttons/) class here.
+Don't worry if you don't fully understand what's happening here, but if you're interested, we're sampling the [Bootstrap large button](http://v4-alpha.getbootstrap.com/components/buttons/) class.
 
 #### Create the first link: #Add-Class
 
@@ -211,11 +203,11 @@ Now we're ready to set up our jQuery function. Add the following script into you
 ```
 Right now ths function does nothing when you click on it. Add the following script to this new function:
 ```javascript
-     $( '#add-class' ).click(function({
+     $( '#add-class' ).click(function() {
           $( 'button' ).addClass('super-button');
      });
 ```
-Let's slow down for a second. What we've done is set up our jQuery file so that when you click on a link with the ID `#add-class`, it will add the CSS styles under `.super-button` to that `button`. Make sense?
+Let's slow down for a second. What we've done is set up our jQuery file so that when you click on an element with the ID `#add-class`, it will add the CSS styles under `.super-button` to that `button`. Make sense?
 
 *Gut check: what if we added more buttons? What would happen if we clicked this link?*
 
@@ -235,7 +227,7 @@ We're now working with a new ID `#remove-class`. Let's make sure it has somethin
           $( 'button' ).removeClass('super-button');
      });
 ```
-Notice the new event handler `.removeClass` - if you click on this new link, you'll remove the class you've just added.
+Notice the new event handler `.removeClass` - if you click on this new link, you'll remove the class you've just added (but only if you've added it).
 
 *Gut check: what if you never clicked on the first link? What would be the effect of clicking this one?*
 
@@ -283,7 +275,7 @@ Good! Now move over to your `custom.js` file and add the following jQuery code i
           $( this ).toggleClass('click-this');
      });
 ```
-The selector `this` is a cool jQuery selector that affects the same element in the selector above it. It will only impact that particular element, but you can reproduce this function for other elements as well, if they share the same class.
+The selector `this` is a cool jQuery selector that affects the same element in the selector above it. It will only impact that particular element, even if they share the same class!
 
 Save your changes, refresh your browser, and test whether this works on all three `<div>`s. 
 
@@ -302,7 +294,9 @@ As started earlier, the **Document Object Model** or **DOM** for short is how yo
 - The right `<li>` element is the parent of `<b>`, child of `<ul>` and a descendant of `<div>`
 - The `<b>` element is a child of the right `<li>` and a descendant of `<ul>` and `<div>`
 
-In other words, elements follow an implicit hierarchy of `parent` and `child`, of `ascendant` and `descendant`. In jQuery, we can write code for a `parent` element that impacts the `child`. Let's use the example where this comes in most handy: **the list**.
+In other words, elements follow an implicit family tree-style hierarchy of "parent" and "child", of "ascendant" and "descendant". If they are are equivalent in hierarchy, they are known as "siblings."
+
+In jQuery, we can write code for a `parent` element that impacts the `child`. Let's use the example where this comes in most handy: **the list**.
 
 Create a list with the following HTML code in your `index.html` file. Add a button at the bottom.
 ```html
@@ -314,7 +308,17 @@ Create a list with the following HTML code in your `index.html` file. Add a butt
 <button></button>
 ```
 
-Let's create a jQuery function that deletes the top item on the list. 
+#### Remove the children (settle down...) 
+
+Let's create a jQuery function that deletes the children elements of the list. 
+
+**Gut check:** one of our functions may be conflicting with the one we're about to make:
+```javascript
+    $( 'button' ).click(function() {
+         window.alert("Nice clicking there, my friend!");
+    });
+```
+You can delete it or disable it - we won't be using it again.
 
 First, we have to create an ID for the list: `item-list`. We also need an ID for the button: `delete-item`. Name the button as well.
 ```html
@@ -323,15 +327,58 @@ First, we have to create an ID for the list: `item-list`. We also need an ID for
      <ul>Item #2</ul>
      <ul>Item #3</ul>
 </li>
-<button id="delete-item">Delete an item</button>
+<button id="delete-list">Delete list</button>
 ```
 
 Next, we go into our `custom.js` file and add yet another jQuery function:
 
 ```javascript
-     $( '#delete-item' ).click(function({
-          $( '#item-list' ).child().remove();
+     $( '#delete-item' ).click(function() {
+          $( '#item-list' ).children().remove();
      });
 ```
 
 What's happening here is that when you click on the button with ID `#delete-item`, it will look for the ID `item-list`, then for one of its children elements, and remove it. Save all of your changes and try it out yourself.
+
+Did the entire list get deleted? If so, it worked! Notice how we had to **chain** the methods of `.children()` and `.remove()` in order to make this work. This is part of the fun of working in an *object-oriented language* in dot notation!
+
+*Gut check: what if we just wanted to remove one of the items at a time? Can you do it without creating an entirely new jQuery function?*
+
+#### Let's get back at our parents instead! (Settle down...)
+
+Create a new method where if you click on one of the items of the list, it will do something to the parent element. This time, let's change the text of that element to something else. We're going to make this conditional to any `<ul>` element.
+
+```javascript
+     $( 'ul' ).click(function() {
+          $( this ).parent();
+      });
+```
+
+This time, let's add a method `.text("We just changed the text! Take that, parents!");` to this function.
+
+```javascript
+     $( 'ul' ).click(function() {
+          $( this ).parent().text("We just changed the text! Take that, parents!");
+      });
+```
+
+Save your work and refresh your browser. What happened? *and at what cost...?*
+
+#### Play into the sibling rivalry instead
+
+The `<ul>` elements are siblings of one another. Let's click on one element and change the others! We'll need to modify our current block so that there are no conflicts.
+
+```javascript
+     $( 'ul' ).click(function() {
+          $( this ).siblings().text("My siblings are dorks!");
+      });
+```
+
+Did it work? What happens if you click on another sibling? (Oh, does your medicine taste bitter...)
+
+Congratulations - you've just learned how to use jQuery to work in the DOM.
+
+## Play around in the sandbox!
+```javascript
+     $
+```
