@@ -59,7 +59,7 @@ Below is what your code should look like once downloaded:
 Let's change that. Add the following links to the `<head>` element and near the bottom of the `<body>`.
 - `<link rel="stylesheet" type="text/css" href="CSS/style.css" />` in between `<head>` and `</head>`
 - - `<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>` to the bottom of your body tag, just before `</body>`
-- `<script src="JS/custom.js></script>` to the very bottom of your body tag, just before `</body>` but below the Google jQuery API link **(this specific placement is vital!)**
+- `<script src="JS/custom.js"></script>` to the very bottom of your body tag, just before `</body>` but below the Google jQuery API link **(this specific placement is vital!)**
 
 
 Your code should now look a lot more like the following:
