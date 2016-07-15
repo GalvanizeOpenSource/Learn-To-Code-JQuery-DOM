@@ -58,7 +58,7 @@ Below is what your code should look like once downloaded:
 ```
 Let's change that. Add the following links to the `<head>` element and near the bottom of the `<body>`.
 - `<link rel="stylesheet" type="text/css" href="CSS/style.css" />` in between `<head>` and `</head>`
-- - `<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>` to the bottom of your body tag, just before `</body>`
+- - `<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>` to the bottom of your body tag, just before `</body>`
 - `<script src="JS/custom.js"></script>` to the very bottom of your body tag, just before `</body>` but below the Google jQuery API link **(this specific placement is vital!)**
 
 
@@ -73,7 +73,7 @@ Your code should now look a lot more like the following:
 </head>
 <body>
 <h1>Welcome to jQuery! Let's get started below.</h1>     
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
    <script src="JS/custom.js"></script>
 </body>
 </html>
@@ -104,14 +104,14 @@ It is not wise to manipulate a page unless the elements are completely loaded. T
 
 Let's add the following code to your `$( document ).ready` function:
 ```javascript
-     window.alert("The document is ready! (jQuery is working!)");
+     alert("The document is ready! (jQuery is working!)");
 ```
 This should create a pop-up window saying "The document is ready!" (You'll need to allow pop-ups in your browser.)
 
 Add the code to look like the following, then save and refresh your browser.
 ```javascript
 $( document ).ready(function() {
-     window.alert("The document is ready! (jQuery is working!)");
+     alert("The document is ready! (jQuery is working!)");
 });
 ```
 **Note:** is this alert pops up, that means your JavaScript code is working. This is one way to check if that is the case. (What are some more conventional ways to check this?)
@@ -123,7 +123,7 @@ In jQuery, events are methods that happen with the user's interaction. There are
 First, let's create something in our HTML for the user to click on. Insert the following code somewhere in the `<body>`:
 
 ```html
-<button type="button">This is a button.</button>
+<button>This is a button.</button>
 ```
 
 This is a button in HTML, set to the browser's default settings. Add it to your `<body>`.
@@ -141,16 +141,16 @@ Save your HTML file and refresh your browser. It should now appear. How do we ma
 **Define the method!** We are going to create a JavaScript function within the `.click` method to do a specific function for this `event` with an empty parameter. For simplicity, let's create another alert.
 ```javascript
      $('button').click(function() {
-          window.alert("Nice clicking, there, friend!");
+          alert("Nice clicking, there, friend!");
      });
 ```     
 **Save and check!** Put it all in the `$( document ).ready()`, save your JS file, and refresh the browser. Did it work?
 ```javascript
 $( document ).ready(function() {
-     window.alert("The document is ready!");
+     alert("The document is ready!");
      // new code below
      $('button').click(function() {
-          window.alert("Nice clicking, there, friend!");
+          alert("Nice clicking, there, friend!");
      });
 });
 ```
@@ -300,11 +300,11 @@ In jQuery, we can write code for a `parent` element that impacts the `child`. Le
 
 Create a list with the following HTML code in your `index.html` file. Add a button at the bottom.
 ```html
-<li>This is a list!
-     <ul>Item #1</ul>
-     <ul>Item #2</ul>
-     <ul>Item #3</ul>
-</li>
+<ul>This is a list!
+     <li>Item #1</li>
+     <li>Item #2</li>
+     <li>Item #3</li>
+</ul>
 <button></button>
 ```
 
@@ -322,11 +322,11 @@ You can delete it or disable it - we won't be using it again.
 
 First, we have to create an ID for the list: `item-list`. We also need an ID for the button: `delete-item`. Name the button as well.
 ```html
-<li id="item-list">This is a list!
-     <ul>Item #1</ul>
-     <ul>Item #2</ul>
-     <ul>Item #3</ul>
-</li>
+<ul id="item-list">This is a list!
+     <li>Item #1</li>
+     <li>Item #2</li>
+     <li>Item #3</li>
+</ul>
 <button id="delete-list">Delete list</button>
 ```
 
@@ -351,7 +351,7 @@ Notice how we had to **chain** the methods of `.children()` and `.remove()` in o
 Create a new method where if you click on one of the items of the list, it will do something to the parent element. This time, let's change the text of that element to something else. We're going to make this conditional to any `<ul>` element.
 
 ```javascript
-     $( 'ul' ).click(function() {
+     $( 'li' ).click(function() {
           $( this ).parent();
       });
 ```
@@ -359,7 +359,7 @@ Create a new method where if you click on one of the items of the list, it will 
 This time, let's add a method `.text("We just changed the text! Take that, parents!");` to this function.
 
 ```javascript
-     $( 'ul' ).click(function() {
+     $( 'li' ).click(function() {
           $( this ).parent().text("We just changed the text! Take that, parents!")>;
       });
 ```
@@ -371,7 +371,7 @@ Save your work and refresh your browser. What happened? *and at what cost...?*
 The `<ul>` elements are siblings of one another. Let's click on one element and change the others! We'll need to modify our current block so that there are no conflicts.
 
 ```javascript
-     $( 'ul' ).click(function() {
+     $( 'li' ).click(function() {
           $( this ).siblings().text("My siblings are dorks!");
       });
 ```
@@ -384,7 +384,7 @@ Did it work? What happens if you click on another sibling? (Oh, does your medici
 
 Nice work - you're picking up the basics so far, but the jQuery library is vast! Why not try some more complicated tasks:
 
-- Add `<ul>` elements so that your list doesn't disappear when you change the content
+- Add `<li>` elements so that your list doesn't disappear when you change the content
 - Create a form to submit values directly to the page
 - Add an image and modify its height and width
 - Make an element disappear.... slowly...
